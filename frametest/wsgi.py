@@ -21,13 +21,13 @@ class Frametest:
         view = self._get_view(request)
         response = self._get_response(request, view)
         print(response)
-        #start_response(response.status, list(response.headers.items()))
-        #return [response.body.encode()]
-        start_response('200 OK', [('Content-Type', 'text/html')])
-        rew2 = render('index.html', object_list=[{'name': 'Leo'}, {'name': 'Kate'}])
-        print('2')
+        start_response(response.status, list(response.headers.items()))
+        #start_response('200 OK', [('Content-Type', 'text/html')])
+        #rew2 = render('index.html', object_list=[{'name': 'Leo'}, {'name': 'Kate'}])
+        #print('2')
         #return rew2.encode(encoding="utf-8")
         #return [b'kefkdfk']
+        return [response.body.encode()]
 
 
     def _get_view(self, request: Request):
